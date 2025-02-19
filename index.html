@@ -38,7 +38,57 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
 <script>
 
-	//YOUR JAVASCRIPT GOES HERE
+//this code declares a total number of questions and inital values for depression or stress indication//
+	var totalQuestions =5
+        var depression_count = 0;
+        var stress_count = 0;
+// this code increases the cold count everytime the answer is associated with an allergy//
+	function depressionAdd(){
+            depression_count = depression_count + 1;
+
+        }
+// this code increases the cold count everytime the answer is associated with a cold//
+	function stressAdd(){
+		stress_count = stress_count + 1;
+
+        }
+//this code uses the previous code to establish the probability of test taker having a cold or allergy//
+	function getResult() {
+//the next two lines set the precise precentages using the responses//
+	var depressionPercent = (depression_count/totalQuestions)*100
+		
+	var stressPercent = (stress_count/totalQuestions)*100
+//this code adds the probabilities together//
+	var totalPercent = depressionPercent + stressPercent;
+//the following section makes sure the total equals 100% by adding a scaling factor//	
+	if (totalPercent !==100) {
+
+		var scale = 100 / totalPercent ;
+		depressionPercent *= scale;
+		stressPercent *=scale;
+	}	
+//this code establishes result text as the ID that will trigger the results//
+	var resultText = document.getElementById("resultText");
+
+//this code establishes the content of the results by setting the formula//
+resultText.innerHTML = "Probability it is depression =" + depressionPercent.toFixed(2) + "<br> Probability it is stress =" + stressPercent.toFixed(2); 
+
+//this code sends the test taker to the results page//
+		
+location.href= "#results";
+	}
+//this code resets the test and resets the system to accept new answers//
+function restartTest() {
+	depression_count= 0;
+	stress_count=0;
+//this code clears the answers//	
+	document.getElementById("resultText").innerHTML = "";
+//this code resets the exam to start over and and return to page one//
+	window.location.hash ="#reset";
+	setTimeout(()=> {
+		window.location.hash = "#content0";
+		   }, 50);
+}
 
 </script>	
 
@@ -68,8 +118,133 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
 <body>
 	
-	<!-- HERE IS WHERE ALL OF YOUR HTML PAGES GO -->
-	REPLACE THIS TEXT
+<!--I couldn't write the comments within, so the code section above sets the page to take full screen, fixes it in place, and allows scrolling
+the section below tells us that page is visible if shifted to left-->
+	
+<!--this code sets the first page of the test with a color and name-->
+<div id="header" class="w3-container w3-flat-carrot">
+	<h1>Stress or Allergies?</h1>
+</div>
+<!--this code sets an introduction and the button directs it to the first question-->	
+<div id="content0" class="w3-container">
+	<p>Are you feeling like you might have stress but wonder if it is depression? Answer a few short questions to find out!</p>
+	
+	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a>
+	
+	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
+ 	
+	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
+<!--Code is closed-->
+
+<!--this code is question number 1 and opens a new page-->
+<div class="page" id="one">
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 1</h1>
+	</div>
+
+    	<div id="content1" class="w3-container">
+        <p>Do you feel sad or empty most of the time?</p>  
+	</div>
+<!--this code runs the allergy add moves the taker to the next question on page two if they click yes-->
+		<a href="#two"  onclick="depressionAdd();" class="w3-btn w3-black"> Yes</a>
+<!--this code runs the cold add and moves to page two if they click no-->
+<a href="#two"  onclick="stressAdd();" class="w3-btn w3-black">No</a>
+    </div>
+</div>
+<!--Code is closed-->
+	
+<!--this code is question number 2 and opens a new page-->
+<div class="page" id="two">
+	<div class="w3-container w3-flat-carrot">
+	<h1>Question 2</h1>
+	</div>
+	
+	<div id="content2" class="w3-container">
+		<p>Have you been feeling tired or drained even after resting?</p>  
+	</div>			
+<!--this code runs the allergy add moves the taker to the next question on page two if they click yes-->
+		<a href="#three"  onclick="depressionAdd();" class="w3-btn w3-black"> Yes</a>
+<!--this code runs the cold add and moves to page two if they click no-->
+         	<a href="#three"  onclick="stressAdd();" class="w3-btn w3-black">No</a>
+	</div>	
+
+</div>
+<!--Code is closed-->
+
+<!--this code is question number 3 and opens a new page-->	
+<div class="page" id="three">
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 3</h1>
+	</div>
+	
+    	<div id="content3" class="w3-container">
+        <p>Have you been sleeping more than usual?</p> 
+	</div>	
+<!--this code runs the allergy add moves the taker to the next question on page two if they click yes-->
+		<a href="#four"  onclick="depressionAdd();" class="w3-btn w3-black"> Yes</a>
+<!--this code runs the stress add and moves to page two if they click no-->
+         	<a href="#four"  onclick="stressAdd();" class="w3-btn w3-black">No</a>
+    	</div>
+</div>
+<!--Code is closed-->
+
+<!--this code is question number 4 and opens a new page-->	
+<div class="page" id="four">
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 4</h1>
+	</div>
+	
+    	<div id="content4" class="w3-container">
+        	<p>Do you dread or worry about the future?</p>
+	</div>
+<!--this code runs the allergy add moves the taker to the next question on page two if they click yes-->
+		<a href="#five"  onclick="stressAdd();" class="w3-btn w3-black"> Yes</a>
+<!--this code runs the stress add and moves to page two if they click no-->
+         	<a href="#five"  onclick="depressionAdd();" class="w3-btn w3-black">No</a>
+    	
+	</div>
+</div>
+<!--Code is closed-->
+
+<!--this code is question number 5 and opens a new page-->	
+<div class="page" id="five">
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 5</h1>
+	</div>
+	
+    	<div id="content5" class="w3-container">
+        	<p>Do you consistently feel overwhelmed or anxious about everything?</p>
+	</div>
+		<a href="#six"  onclick="stressAdd();" class="w3-btn w3-black"> Yes</a>
+         	<a href="#six"  onclick="depressionAdd();" class="w3-btn w3-black">No</a>	
+</div>
+<!--Code is closed-->
+	
+<!--this code leads to the results page-->
+	
+<div class="page" id="results">
+	<div id="header" class="w3-container w3-flat-carrot">		
+		<h1>Results</h1>
+</div>
+	<div id= "content" class="w3 container">
+		<p>Click the button below to "diagnose!"</p>
+		<a href="#results" class="w3-btn w3-black" onclick= "getResult();">See Results</button>	
+	</div>
+
+<!--this code uses the answers to calculate the results with a click-->
+	
+<div id="resultContainer" class="w3 container">
+	<button onclick="getResult();" class="w3-button w3-white w3-round w3-hover-green"><b>Results</b></button>
+	<p id="resultText"></p>
+<!--this code resets the test and goes back to page 1-->
+	<button onclick="restartTest();" class="w3-button w3-white w3-round w3-hover-red"><b>Restart Test</b></button>
+
+	</div>
+</div>
+<!--this code adds a footer-->
+<footer class="w3-bottom w3-container w3-flat-carrot">
+	<p>DIY!</p>
+</footer>
 	
 </body>
 </html>
