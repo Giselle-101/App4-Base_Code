@@ -116,9 +116,148 @@ function restartTest() {
 </style>
 
 <body>
+<!--I couldn't write the comments within, so the code section above sets the page to take full screen, fixes it in place, and allows scrolling
+the section below tells us that page is visible if shifted to left-->
 	
-	<!-- HERE IS WHERE ALL OF YOUR HTML PAGES GO -->
-	REPLACE THIS TEXT
+<!--this code sets the first page of the test with a color and name-->
+<div id="header" class="w3-container w3-flat-carrot">
+	<h1>Cold or Allergies?</h1>
+</div>
+<!--this code sets an introduction and the button directs it to the first question-->	
+<div id="content0" class="w3-container">
+	<p>Are you feeling like you might have a cold but wonder if it is allergies. Answer a few short questions to find out!</p>
+	
+	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a>
+	
+	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
+ 	
+	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
+<!--Code is closed-->
+
+<!--this code is question number 1 and opens a new page-->
+<div class="page" id="one">
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 1</h1>
+	</div>
+
+    	<div id="content1" class="w3-container">
+        <p>Are your eyes watery or itchy?</p>  
+	</div>
+<!--this code runs the allergy add moves the taker to the next question on page two if they click yes-->
+		<a href="#two"  onclick="allergyAdd();" class="w3-btn w3-black"> Yes</a>
+<!--this code runs the cold add and moves to page two if they click no-->
+<a href="#two"  onclick="coldAdd();" class="w3-btn w3-black">No</a>
+    </div>
+</div>
+<!--Code is closed-->
+	
+<!--this code is question number 2 and opens a new page-->
+<div class="page" id="two">
+	<div class="w3-container w3-flat-carrot">
+	<h1>Question 2</h1>
+	</div>
+	
+	<div id="content2" class="w3-container">
+		<p>Do you have a fever?</p>  
+	</div>			
+<!--this code runs the allergy add moves the taker to the next question on page two if they click yes-->
+		<a href="#three"  onclick="allergyAdd();" class="w3-btn w3-black"> Yes</a>
+<!--this code runs the cold add and moves to page two if they click no-->
+         	<a href="#three"  onclick="coldAdd();" class="w3-btn w3-black">No</a>
+	</div>	
+
+</div>
+<!--Code is closed-->
+
+<!--this code is question number 3 and opens a new page-->	
+<div class="page" id="three">
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 3</h1>
+	</div>
+	
+    	<div id="content3" class="w3-container">
+        <p>Do you have a sore throat?</p> 
+	</div>	
+<!--this code runs the allergy add moves the taker to the next question on page two if they click yes-->
+		<a href="#four"  onclick="allergyAdd();" class="w3-btn w3-black"> Yes</a>
+<!--this code runs the cold add and moves to page two if they click no-->
+         	<a href="#four"  onclick="coldAdd();" class="w3-btn w3-black">No</a>
+    	</div>
+</div>
+<!--Code is closed-->
+
+<!--this code is question number 4 and opens a new page-->	
+<div class="page" id="four">
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 4</h1>
+	</div>
+	
+    	<div id="content4" class="w3-container">
+        	<p>Are your symptoms seasonal?</p>
+	</div>
+<!--this code runs the allergy add moves the taker to the next question on page two if they click yes-->
+		<a href="#five"  onclick="allergyAdd();" class="w3-btn w3-black"> Yes</a>
+<!--this code runs the cold add and moves to page two if they click no-->
+         	<a href="#five"  onclick="coldAdd();" class="w3-btn w3-black">No</a>
+    	
+	</div>
+</div>
+<!--Code is closed-->
+
+<!--this code is question number 5 and opens a new page-->	
+<div class="page" id="five">
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 5</h1>
+	</div>
+	
+    	<div id="content5" class="w3-container">
+        	<p>Are your symptoms triggered by exposure to things like pollen or dust?</p>
+	</div>
+		<a href="#six"  onclick="allergyAdd();" class="w3-btn w3-black"> Yes</a>
+         	<a href="#six"  onclick="coldAdd();" class="w3-btn w3-black">No</a>	
+</div>
+<!--Code is closed-->
+
+<!--this code is question number 6 and opens a new page-->
+	
+<div class="page" id="six">
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 6</h1>
+	</div>
+	
+    	<div id="content5" class="w3-container">
+        	<p>Do you have body aches?</p>
+	</div>
+		<a href="#results"  onclick="coldAdd();" class="w3-btn w3-black"> Yes</a>
+         	<a href="#results"  onclick="allergyAdd();" class="w3-btn w3-black">No</a>	
+</div>
+</div>
+	
+<!--this code leads to the results page-->
+	
+<div class="page" id="results">
+	<div id="header" class="w3-container w3-flat-carrot">		
+		<h1>Results</h1>
+</div>
+	<div id= "content" class="w3 container">
+		<p>Click the button below to "diagnose!"</p>
+		<a href="#results" class="w3-btn w3-black" onclick= "getResult();">See Results</button>	
+	</div>
+
+<!--this code uses the answers to calculate the results with a click-->
+	
+<div id="resultContainer" class="w3 container">
+	<button onclick="getResult();" class="w3-button w3-white w3-round w3-hover-green"><b>Results</b></button>
+	<p id="resultText"></p>
+<!--this code resets the test and goes back to page 1-->
+	<button onclick="restartTest();" class="w3-button w3-white w3-round w3-hover-red"><b>Restart Test</b></button>
+
+	</div>
+</div>
+<!--this code adds a footer-->
+<footer class="w3-bottom w3-container w3-flat-carrot">
+	<p>DIY!</p>
+</footer>
 	
 </body>
 </html>
