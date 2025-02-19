@@ -37,8 +37,59 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 </head> 
 
 <script>
+//this code declares a total number of questions and inital values for allergy cold indication//
+	var totalQuestions =6
+        var allergy_count = 0;
+        var cold_count = 0;
+// this code increases the cold count everytime the answer is associated with an allergy//
+	function allergyAdd(){
+            allergy_count = allergy_count + 1;
 
-	//YOUR JAVASCRIPT GOES HERE
+        }
+// this code increases the cold count everytime the answer is associated with a cold//
+	function coldAdd(){
+		cold_count = cold_count + 1;
+
+        }
+//this code uses the previous code to establish the probability of test taker having a cold or allergy//
+	function getResult() {
+//the next two lines set the precise precentages using the responses//
+	var allergyPercent = (allergy_count/totalQuestions)*100
+		
+	var coldPercent = (cold_count/totalQuestions)*100
+//this code adds the probabilities together//
+	var totalPercent = allergyPercent + coldPercent;
+//the following section makes sure the total equals 100% by adding a scaling factor//	
+	if (totalPercent !==100) {
+
+		var scale = 100 / totalPercent ;
+		allergyPercent *= scale;
+		coldPercent *=scale;
+	}	
+//this code establishes result text as the ID that will trigger the results//
+	var resultText = document.getElementById("resultText");
+
+//this code establishes the content of the results by setting the formula//
+resultText.innerHTML = "Probability it is allergies =" + allergyPercent.toFixed(2) + "<br> Probability it is a cold =" + coldPercent.toFixed(2); 
+
+//this code sends the test taker to the results page//
+		
+location.href= "#results";
+	}
+//this code resets the test and resets the system to accept new answers//
+function restartTest() {
+	allergy_count= 0;
+	cold_count=0;
+//this code clears the answers//	
+	document.getElementById("resultText").innerHTML = "";
+//this code resets the exam to start over and and return to page one//
+	window.location.hash ="#reset";
+	setTimeout(()=> {
+		window.location.hash = "#content0";
+		   }, 50);
+}
+
+<!--the code above was particularly tricky- I had to force hash becuase it wouldn't reset with just one layer-->
 
 </script>	
 
