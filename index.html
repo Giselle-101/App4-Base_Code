@@ -39,11 +39,11 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 <script>
 //this code declares a total number of questions and inital values for allergy cold indication//
 	var totalQuestions =6
-        var allergy_count = 0;
+        var depression_count = 0;
         var stress_count = 0;
 // this code increases the cold count everytime the answer is associated with an allergy//
-	function allergyAdd(){
-            allergy_count = allergy_count + 1;
+	function depressionAdd(){
+            depression_count = depression_count + 1;
 
         }
 // this code increases the cold count everytime the answer is associated with a cold//
@@ -54,23 +54,23 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 //this code uses the previous code to establish the probability of test taker having a cold or allergy//
 	function getResult() {
 //the next two lines set the precise precentages using the responses//
-	var allergyPercent = (allergy_count/totalQuestions)*100
+	var depressionPercent = (depression_count/totalQuestions)*100
 		
 	var stressPercent = (stress_count/totalQuestions)*100
 //this code adds the probabilities together//
-	var totalPercent = allergyPercent + stressPercent;
+	var totalPercent = depressionPercent + stressPercent;
 //the following section makes sure the total equals 100% by adding a scaling factor//	
 	if (totalPercent !==100) {
 
 		var scale = 100 / totalPercent ;
-		allergyPercent *= scale;
+		depressionPercent *= scale;
 		stressPercent *=scale;
 	}	
 //this code establishes result text as the ID that will trigger the results//
 	var resultText = document.getElementById("resultText");
 
 //this code establishes the content of the results by setting the formula//
-resultText.innerHTML = "Probability it is allergies =" + allergyPercent.toFixed(2) + "<br> Probability it is stress =" + stressPercent.toFixed(2); 
+resultText.innerHTML = "Probability it is depression =" + depressionPercent.toFixed(2) + "<br> Probability it is stress =" + stressPercent.toFixed(2); 
 
 //this code sends the test taker to the results page//
 		
@@ -78,7 +78,7 @@ location.href= "#results";
 	}
 //this code resets the test and resets the system to accept new answers//
 function restartTest() {
-	allergy_count= 0;
+	depression_count= 0;
 	stress_count=0;
 //this code clears the answers//	
 	document.getElementById("resultText").innerHTML = "";
@@ -144,7 +144,7 @@ the section below tells us that page is visible if shifted to left-->
         <p>Are your eyes watery or itchy?</p>  
 	</div>
 <!--this code runs the allergy add moves the taker to the next question on page two if they click yes-->
-		<a href="#two"  onclick="allergyAdd();" class="w3-btn w3-black"> Yes</a>
+		<a href="#two"  onclick="depressionAdd();" class="w3-btn w3-black"> Yes</a>
 <!--this code runs the cold add and moves to page two if they click no-->
 <a href="#two"  onclick="stressAdd();" class="w3-btn w3-black">No</a>
     </div>
@@ -161,7 +161,7 @@ the section below tells us that page is visible if shifted to left-->
 		<p>Do you have a fever?</p>  
 	</div>			
 <!--this code runs the allergy add moves the taker to the next question on page two if they click yes-->
-		<a href="#three"  onclick="allergyAdd();" class="w3-btn w3-black"> Yes</a>
+		<a href="#three"  onclick="depressionAdd();" class="w3-btn w3-black"> Yes</a>
 <!--this code runs the cold add and moves to page two if they click no-->
          	<a href="#three"  onclick="stressAdd();" class="w3-btn w3-black">No</a>
 	</div>	
@@ -179,7 +179,7 @@ the section below tells us that page is visible if shifted to left-->
         <p>Do you have a sore throat?</p> 
 	</div>	
 <!--this code runs the allergy add moves the taker to the next question on page two if they click yes-->
-		<a href="#four"  onclick="allergyAdd();" class="w3-btn w3-black"> Yes</a>
+		<a href="#four"  onclick="depressionAdd();" class="w3-btn w3-black"> Yes</a>
 <!--this code runs the cold add and moves to page two if they click no-->
          	<a href="#four"  onclick="stressAdd();" class="w3-btn w3-black">No</a>
     	</div>
@@ -196,7 +196,7 @@ the section below tells us that page is visible if shifted to left-->
         	<p>Are your symptoms seasonal?</p>
 	</div>
 <!--this code runs the allergy add moves the taker to the next question on page two if they click yes-->
-		<a href="#five"  onclick="allergyAdd();" class="w3-btn w3-black"> Yes</a>
+		<a href="#five"  onclick="depressionAdd();" class="w3-btn w3-black"> Yes</a>
 <!--this code runs the cold add and moves to page two if they click no-->
          	<a href="#five"  onclick="stressAdd();" class="w3-btn w3-black">No</a>
     	
@@ -213,7 +213,7 @@ the section below tells us that page is visible if shifted to left-->
     	<div id="content5" class="w3-container">
         	<p>Are your symptoms triggered by exposure to things like pollen or dust?</p>
 	</div>
-		<a href="#six"  onclick="allergyAdd();" class="w3-btn w3-black"> Yes</a>
+		<a href="#six"  onclick="depressionAdd();" class="w3-btn w3-black"> Yes</a>
          	<a href="#six"  onclick="stressAdd();" class="w3-btn w3-black">No</a>	
 </div>
 <!--Code is closed-->
