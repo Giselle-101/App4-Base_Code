@@ -38,7 +38,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
 <script>
 //this code declares a total number of questions and inital values for allergy cold indication//
-	var totalQuestions =6
+	var totalQuestions =5
         var depression_count = 0;
         var stress_count = 0;
 // this code increases the cold count everytime the answer is associated with an allergy//
@@ -176,7 +176,7 @@ the section below tells us that page is visible if shifted to left-->
 	</div>
 	
     	<div id="content3" class="w3-container">
-        <p>Do you have a sore throat?</p> 
+        <p>Have you been sleeping more often?</p> 
 	</div>	
 <!--this code runs the allergy add moves the taker to the next question on page two if they click yes-->
 		<a href="#four"  onclick="depressionAdd();" class="w3-btn w3-black"> Yes</a>
@@ -193,12 +193,12 @@ the section below tells us that page is visible if shifted to left-->
 	</div>
 	
     	<div id="content4" class="w3-container">
-        	<p>Are your symptoms seasonal?</p>
+        	<p>Do you seem to dread or worry about the future?</p>
 	</div>
 <!--this code runs the allergy add moves the taker to the next question on page two if they click yes-->
-		<a href="#five"  onclick="depressionAdd();" class="w3-btn w3-black"> Yes</a>
+		<a href="#five"  onclick="stressAdd();" class="w3-btn w3-black"> Yes</a>
 <!--this code runs the cold add and moves to page two if they click no-->
-         	<a href="#five"  onclick="stressAdd();" class="w3-btn w3-black">No</a>
+         	<a href="#five"  onclick="depressionAdd();" class="w3-btn w3-black">No</a>
     	
 	</div>
 </div>
@@ -211,10 +211,10 @@ the section below tells us that page is visible if shifted to left-->
 	</div>
 	
     	<div id="content5" class="w3-container">
-        	<p>Are your symptoms triggered by exposure to things like pollen or dust?</p>
+        	<p>Do you feel constantly overwhelmed or anxious?</p>
 	</div>
-		<a href="#six"  onclick="depressionAdd();" class="w3-btn w3-black"> Yes</a>
-         	<a href="#six"  onclick="stressAdd();" class="w3-btn w3-black">No</a>	
+		<a href="#six"  onclick="stressAdd();" class="w3-btn w3-black"> Yes</a>
+         	<a href="#six"  onclick="depressionAdd();" class="w3-btn w3-black">No</a>	
 </div>
 <!--Code is closed-->
 	
