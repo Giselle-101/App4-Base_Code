@@ -113,11 +113,13 @@ function restartTest() {
     left: 0vw;
     z-index: 1;
 }
-       	img, object{
-            	max-height:90%;
-        		max-width:90%;
-        	}
-
+.responsive-image {
+    display: block; /* Ensures it appears */
+    max-width: 100%;
+    height: auto;
+    margin: 20px auto; /* Centers the image */
+    border: 1px solid #ccc; /* Helps debug if it's invisible */
+}	
 </style>
 
 <body>
