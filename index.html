@@ -7,8 +7,8 @@ THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
  
 Authors in chronological order of contribution:
 Tim Riedel
-Author 2
- 
+Giselle Marroquin
+	
 Further Information:
 http://diystream.cns.utexas.edu/
 
@@ -38,7 +38,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
 <script>
 //this code declares a total number of questions and inital values for allergy cold indication//
-	var totalQuestions =6
+	var totalQuestions =5
         var depression_count = 0;
         var stress_count = 0;
 // this code increases the cold count everytime the answer is associated with an allergy//
@@ -113,6 +113,7 @@ function restartTest() {
     left: 0vw;
     z-index: 1;
 }
+
 .responsive-image {
     display: block; /* Ensures it appears */
     max-width: 100%;
@@ -123,8 +124,6 @@ function restartTest() {
 </style>
 
 <body>
-<!--I couldn't write the comments within, so the code section above sets the page to take full screen, fixes it in place, and allows scrolling
-the section below tells us that page is visible if shifted to left-->
 	
 <!--this code sets the first page of the test with a color and name-->
 <div id="header" class="w3-container w3-flat-carrot">
@@ -150,9 +149,9 @@ the section below tells us that page is visible if shifted to left-->
     	<div id="content1" class="w3-container">
         <p>Do you feel sad or empty most of the time?</p>  
 	</div>
-<!--this code runs the allergy add moves the taker to the next question on page two if they click yes-->
+<!--this code runs the depression add moves the taker to the next question on page two if they click yes-->
 		<a href="#two"  onclick="depressionAdd();" class="w3-btn w3-black"> Yes</a>
-<!--this code runs the cold add and moves to page two if they click no-->
+<!--this code runs the stress add and moves to page two if they click no-->
 <a href="#two"  onclick="stressAdd();" class="w3-btn w3-black">No</a>
     </div>
 </div>
@@ -167,9 +166,9 @@ the section below tells us that page is visible if shifted to left-->
 	<div id="content2" class="w3-container">
 		<p>Have you been feeling tired or drained even after resting?</p>  
 	</div>			
-<!--this code runs the allergy add moves the taker to the next question on page two if they click yes-->
+<!--this code runs the depression add moves the taker to the next question on page two if they click yes-->
 		<a href="#three"  onclick="depressionAdd();" class="w3-btn w3-black"> Yes</a>
-<!--this code runs the cold add and moves to page two if they click no-->
+<!--this code runs the stress add and moves to page two if they click no-->
          	<a href="#three"  onclick="stressAdd();" class="w3-btn w3-black">No</a>
 	</div>	
 
@@ -185,9 +184,9 @@ the section below tells us that page is visible if shifted to left-->
     	<div id="content3" class="w3-container">
         <p>Have you been sleeping more often?</p> 
 	</div>	
-<!--this code runs the allergy add moves the taker to the next question on page two if they click yes-->
+<!--this code runs the depression add moves the taker to the next question on page two if they click yes-->
 		<a href="#four"  onclick="depressionAdd();" class="w3-btn w3-black"> Yes</a>
-<!--this code runs the cold add and moves to page two if they click no-->
+<!--this code runs the stress add and moves to page two if they click no-->
          	<a href="#four"  onclick="stressAdd();" class="w3-btn w3-black">No</a>
     	</div>
 </div>
@@ -202,9 +201,9 @@ the section below tells us that page is visible if shifted to left-->
     	<div id="content4" class="w3-container">
         	<p>Do you seem to dread or worry about the future?</p>
 	</div>
-<!--this code runs the allergy add moves the taker to the next question on page two if they click yes-->
+<!--this code runs the stress add moves the taker to the next question on page two if they click yes-->
 		<a href="#five"  onclick="stressAdd();" class="w3-btn w3-black"> Yes</a>
-<!--this code runs the cold add and moves to page two if they click no-->
+<!--this code runs the depression add and moves to page two if they click no-->
          	<a href="#five"  onclick="depressionAdd();" class="w3-btn w3-black">No</a>
     	
 	</div>
@@ -220,7 +219,9 @@ the section below tells us that page is visible if shifted to left-->
     	<div id="content5" class="w3-container">
         	<p>Do you feel constantly overwhelmed or anxious?</p>
 	</div>
+<!--this code runs the stress add moves the taker to the next question on page two if they click yes-->
 		<a href="#results"  onclick="stressAdd();" class="w3-btn w3-black"> Yes</a>
+<!--this code runs the depression add and moves to page two if they click no-->
          	<a href="#results"  onclick="depressionAdd();" class="w3-btn w3-black">No</a>	
 	</div>
 </div>
@@ -231,7 +232,7 @@ the section below tells us that page is visible if shifted to left-->
 <div class="page" id="results">
 	<div id="header" class="w3-container w3-flat-carrot">		
 		<h1>Results</h1>
-</div>
+        </div>
 	<div id= "content" class="w3 container">
 		<p>Click the button to see your "diagnose!"</p>
 <a href="#results" class="w3-btn w3-black" onclick="getResult();">See Results</a>
@@ -243,6 +244,7 @@ the section below tells us that page is visible if shifted to left-->
    <p id="resultText"></p>
    <button onclick="restartTest();" class="w3-button w3-white w3-round w3-hover-red"><b>Restart Test</b></button>
 </div>
+<!--this code is for the image-->
 <div class="image-container">
 <img src="https://kids.delaware.gov/wp-content/uploads/sites/192/2022/11/Artboard-1-copy-6-min.png" alt="You are Not Alone" class="responsive-image">
 </div>
